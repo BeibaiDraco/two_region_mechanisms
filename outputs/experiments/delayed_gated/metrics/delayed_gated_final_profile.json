@@ -1,0 +1,16 @@
+{
+  "task": "DelayedCategorizationTask",
+  "model": "TwoRegionGatedRNN",
+  "primary_question": "Direct write-in vs delay-period modulation vs temporal staging",
+  "D_onset": 28.7,
+  "M_onset": 23.9,
+  "q_onset": 33.6,
+  "stim_D_unique": -0.6299,
+  "stim_M_unique": 0.7965,
+  "delay_D_unique": -0.5133,
+  "delay_M_unique": 0.7755,
+  "stim_to_late_delay_D_unique": -0.6643,
+  "stim_to_late_delay_M_unique": 0.8645,
+  "M_onset_before_D": true,
+  "strategy_label": "M_first_delay_supported"
+}

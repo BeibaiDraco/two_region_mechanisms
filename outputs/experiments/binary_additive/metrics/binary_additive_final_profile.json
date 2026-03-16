@@ -1,0 +1,12 @@
+{
+  "task": "BinaryCategorizationTask",
+  "model": "TwoRegionAdditiveRNN",
+  "primary_question": "Direct transmission vs stimulus-period modulation",
+  "D_onset": 15.9,
+  "M_onset": 22.9,
+  "q_onset": 24.1,
+  "stim_D_unique_of_M": 0.8126,
+  "stim_M_unique_of_D": -0.5505,
+  "D_onset_before_M": true,
+  "strategy_label": "direct_dominant"
+}

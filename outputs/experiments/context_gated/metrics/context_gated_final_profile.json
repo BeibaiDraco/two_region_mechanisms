@@ -1,0 +1,33 @@
+{
+  "task": "ContextDependentDecisionTask",
+  "model": "TwoRegionGatedRNN",
+  "primary_question": "Context regime setting vs evidence routing vs irrelevant suppression",
+  "response_relevant_slope": 2.0521,
+  "response_irrelevant_leakage": 0.0539,
+  "response_routing_selectivity": 1.9983,
+  "decoupled_routing_selectivity": -0.0005,
+  "selectivity_gain_from_coupling": 1.9987,
+  "routing_by_epoch": {
+    "cue": {
+      "relevant": 0.001,
+      "irrelevant": -0.0002,
+      "norm_selectivity": 0.0
+    },
+    "stimulus": {
+      "relevant": 0.2932,
+      "irrelevant": 0.1787,
+      "norm_selectivity": 0.2425
+    },
+    "delay": {
+      "relevant": 1.2839,
+      "irrelevant": 0.4097,
+      "norm_selectivity": 0.5161
+    },
+    "response": {
+      "relevant": 2.0521,
+      "irrelevant": 0.0539,
+      "norm_selectivity": 0.9489
+    }
+  },
+  "strategy_label": "routing_modulatory"
+}

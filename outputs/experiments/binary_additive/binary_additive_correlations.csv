@@ -1,0 +1,13 @@
+feature,raw_corr,raw_p,partial_corr,partial_p
+stimulus_d_peak,0.9994,0.0,0.9825,0.0
+stimulus_m_peak,0.9988,0.0,0.9727,0.0
+stimulus_d_auc,0.9976,0.0,0.9463,0.0
+response_d_peak,0.9975,0.0,0.9239,0.0
+response_d_auc,0.9974,0.0,0.9223,0.0
+stimulus_m_auc,0.994,0.0,0.8906,0.0
+response_m_auc,0.9829,0.0,0.7154,0.0
+d_peak_time,-0.9314,0.0,-0.5738,0.0
+response_m_peak,0.944,0.0,0.4782,0.0
+q_onset,-0.3819,0.0,-0.3134,0.0
+d_onset,-0.3644,0.0,-0.2748,8e-06
+m_onset,-0.2908,2e-06,-0.2293,0.000216

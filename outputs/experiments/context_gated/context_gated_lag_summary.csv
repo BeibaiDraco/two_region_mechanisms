@@ -1,0 +1,17 @@
+feature,target_window,corr,pvalue,n_trials
+cue_d,final_abs_q,0.0891,0.155017,256
+cue_d,resp_abs_q,0.0875,0.162647,256
+cue_m,final_abs_q,0.0891,0.155017,256
+cue_m,resp_abs_q,0.0875,0.162646,256
+stimulus_d,final_abs_q,0.6241,0.0,256
+stimulus_d,resp_abs_q,0.628,0.0,256
+stimulus_m,final_abs_q,0.368,0.0,256
+stimulus_m,resp_abs_q,0.368,0.0,256
+delay_d,final_abs_q,0.7144,0.0,256
+delay_d,resp_abs_q,0.7169,0.0,256
+delay_m,final_abs_q,0.32,0.0,256
+delay_m,resp_abs_q,0.3198,0.0,256
+response_d,final_abs_q,0.5258,0.0,256
+response_d,resp_abs_q,0.5245,0.0,256
+response_m,final_abs_q,0.0217,0.729476,256
+response_m,resp_abs_q,0.0205,0.744283,256

@@ -3,4 +3,16 @@ __pycache__/
 *.pyo
 *.pyd
 .venv/
-outputs/
+
+# Large binary files (reproducible via pipeline)
+outputs/*/checkpoints/
+outputs/*/*/checkpoints/
+outputs/**/*.pt
+
+# Large data arrays (reproducible via analysis scripts)
+outputs/**/*_hidden.npz
+outputs/**/*_minimal.npz
+outputs/**/traces.npz
+
+# Smoke test outputs (quick to regenerate)
+outputs/smoke/

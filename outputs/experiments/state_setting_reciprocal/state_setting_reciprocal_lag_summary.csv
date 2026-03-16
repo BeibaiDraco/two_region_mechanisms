@@ -1,0 +1,9 @@
+feature,target_window,corr,pvalue,n_trials
+cue_d,final_abs_q,0.6139,0.0,256
+cue_m,final_abs_q,-0.5734,0.0,256
+signal_d,final_abs_q,0.4487,0.0,256
+signal_m,final_abs_q,0.1387,0.026488,256
+delay_d,final_abs_q,0.7842,0.0,256
+delay_m,final_abs_q,-0.3901,0.0,256
+response_d,final_abs_q,0.3505,0.0,256
+response_m,final_abs_q,-0.191,0.002139,256

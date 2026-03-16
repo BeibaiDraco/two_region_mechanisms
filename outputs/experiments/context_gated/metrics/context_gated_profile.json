@@ -1,0 +1,6 @@
+{
+  "experiment": "context_gated",
+  "n": 256,
+  "m_div": 34,
+  "q_div": 4
+}

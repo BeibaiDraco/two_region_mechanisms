@@ -1,0 +1,32 @@
+{
+  "experiment": "redundant_lowrank",
+  "task": "RedundantInputControlTask",
+  "model": "TwoRegionLowRankCommRNN",
+  "seed": 15,
+  "D_J_mean": 1.0,
+  "M_J_mean": 0.125,
+  "E_J_mean": 1.0,
+  "mechanism_class_mode": "(1,0)",
+  "mechanism_class_counts": {
+    "(1,0)": 7,
+    "(1,1)": 1
+  },
+  "max_abs_delta_q_mean": 1.2279461324214935,
+  "max_abs_direct_mean": 0.07924312353134155,
+  "max_abs_modulation_mean": 0.03502960503101349,
+  "auc_delta_q_mean": 13.9299396276474,
+  "auc_direct_mean": 1.1898132860660553,
+  "auc_modulation_mean": 0.2720593921840191,
+  "n_trials_total": 256,
+  "trial_D_max_median": 0.05065995454788208,
+  "trial_D_max_p90": 0.07482069730758667,
+  "trial_M_max_median": 0.014409735798835754,
+  "trial_M_max_p90": 0.025378942489624023,
+  "trial_M_mean_median": 0.005511274561285973,
+  "trial_M_mean_p90": 0.00801137462258339,
+  "trial_E_max_median": 0.7904555201530457,
+  "trial_E_max_p90": 1.1575138568878174,
+  "frac_trials_D_above": 0.34765625,
+  "frac_trials_M_above": 0.0078125,
+  "frac_trials_E_above": 1.0
+}

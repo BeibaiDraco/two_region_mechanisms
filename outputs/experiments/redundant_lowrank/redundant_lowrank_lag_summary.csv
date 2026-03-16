@@ -1,0 +1,9 @@
+feature,target_window,corr,pvalue,n_trials
+stimulus_d,final_abs_q,0.9953,0.0,256
+stimulus_d,resp_abs_q,0.9953,0.0,256
+stimulus_m,final_abs_q,0.9842,0.0,256
+stimulus_m,resp_abs_q,0.9842,0.0,256
+response_d,final_abs_q,0.9871,0.0,256
+response_d,resp_abs_q,0.9871,0.0,256
+response_m,final_abs_q,0.4505,0.0,256
+response_m,resp_abs_q,0.4505,0.0,256

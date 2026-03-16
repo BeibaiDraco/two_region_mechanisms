@@ -1,0 +1,46 @@
+{
+  "task": "RedundantInputControlTask",
+  "model": "TwoRegionLowRankCommRNN",
+  "primary_question": "Backup/direct use when B has redundant evidence",
+  "D_onset": 14.9,
+  "M_onset": 18.1,
+  "q_onset": 21.3,
+  "stim_D_unique_of_M": 0.7718,
+  "stim_M_unique_of_D": 0.0258,
+  "mean_relative_decoupling_cost": 0.6535,
+  "decoupling_cost_by_difficulty": [
+    {
+      "difficulty": 0.2,
+      "n": 62,
+      "coupled_mean_abs_q": 0.4498,
+      "decoupled_mean_abs_q": 0.1494,
+      "decoupling_cost": 0.3004,
+      "relative_cost": 0.6678
+    },
+    {
+      "difficulty": 0.4,
+      "n": 69,
+      "coupled_mean_abs_q": 0.8505,
+      "decoupled_mean_abs_q": 0.2904,
+      "decoupling_cost": 0.5602,
+      "relative_cost": 0.6586
+    },
+    {
+      "difficulty": 0.6,
+      "n": 65,
+      "coupled_mean_abs_q": 1.2432,
+      "decoupled_mean_abs_q": 0.4355,
+      "decoupling_cost": 0.8077,
+      "relative_cost": 0.6497
+    },
+    {
+      "difficulty": 0.8,
+      "n": 60,
+      "coupled_mean_abs_q": 1.5909,
+      "decoupled_mean_abs_q": 0.5759,
+      "decoupling_cost": 1.0149,
+      "relative_cost": 0.638
+    }
+  ],
+  "strategy_label": "direct_backup"
+}

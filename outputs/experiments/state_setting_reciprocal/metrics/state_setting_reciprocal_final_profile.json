@@ -1,0 +1,30 @@
+{
+  "task": "StateSettingTask",
+  "model": "TwoRegionReciprocalContextRNN",
+  "primary_question": "Cue-dependent regime setting: readout-axis vs off-axis hidden state",
+  "mode_separation_by_epoch": {
+    "cue": {
+      "alpha_sep": 0.0279,
+      "beta_sep": 0.0077
+    },
+    "signal": {
+      "alpha_sep": 0.042,
+      "beta_sep": 0.056
+    },
+    "delay": {
+      "alpha_sep": 0.0887,
+      "beta_sep": 0.2131
+    },
+    "response": {
+      "alpha_sep": 0.0679,
+      "beta_sep": 0.4457
+    }
+  },
+  "response_beta_separation": 0.4457,
+  "response_alpha_separation": 0.0679,
+  "response_mode_spread_coupled": 0.1862,
+  "response_mode_spread_decoupled": 0.0216,
+  "triplet_q_spread_coupled": 0.3221,
+  "triplet_q_spread_decoupled": 0.0216,
+  "strategy_label": "off_axis_mode_control"
+}

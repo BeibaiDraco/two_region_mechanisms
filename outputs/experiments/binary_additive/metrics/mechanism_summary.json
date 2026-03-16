@@ -1,0 +1,31 @@
+{
+  "experiment": "binary_additive",
+  "task": "BinaryCategorizationTask",
+  "model": "TwoRegionAdditiveRNN",
+  "seed": 11,
+  "D_J_mean": 1.0,
+  "M_J_mean": 1.0,
+  "E_J_mean": 1.0,
+  "mechanism_class_mode": "(1,1)",
+  "mechanism_class_counts": {
+    "(1,1)": 8
+  },
+  "max_abs_delta_q_mean": 2.11677423119545,
+  "max_abs_direct_mean": 0.10349971055984497,
+  "max_abs_modulation_mean": 0.09279308281838894,
+  "auc_delta_q_mean": 20.362648010253906,
+  "auc_direct_mean": 1.616748422384262,
+  "auc_modulation_mean": 0.8249130696058273,
+  "n_trials_total": 256,
+  "trial_D_max_median": 0.07377815246582031,
+  "trial_D_max_p90": 0.09862363338470459,
+  "trial_M_max_median": 0.05186040326952934,
+  "trial_M_max_p90": 0.07466348260641098,
+  "trial_M_mean_median": 0.018928078934550285,
+  "trial_M_mean_p90": 0.026171134784817696,
+  "trial_E_max_median": 1.4955971240997314,
+  "trial_E_max_p90": 2.0057671070098877,
+  "frac_trials_D_above": 0.58203125,
+  "frac_trials_M_above": 0.625,
+  "frac_trials_E_above": 1.0
+}
