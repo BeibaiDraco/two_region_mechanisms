@@ -1,0 +1,8 @@
+name: BinaryCategorizationTask
+params:
+  seed: 0
+  seq_len: 50
+  fix_len: 10
+  stim_len: 25
+  response_len: 15
+  noise_std: 0.20

@@ -1,0 +1,42 @@
+seed: 13
+device: auto
+output_dir: outputs/experiments/context_gated
+
+task:
+  name: ContextDependentDecisionTask
+  params:
+    seed: 13
+    cue_len: 8
+    stim_len: 24
+    delay_len: 10
+    response_len: 16
+    noise_std: 0.25
+
+model:
+  name: TwoRegionGatedRNN
+  params:
+    hidden_size_a: 64
+    hidden_size_b: 64
+    dt: 0.1
+    tau_a: 1.0
+    tau_b: 2.0
+    reciprocal: false
+    noise_std: 0.0
+
+train:
+  steps: 1000
+  batch_size: 64
+  learning_rate: 0.001
+  eval_every: 2
+  val_batches: 8
+  grad_clip: 1.0
+  activity_reg: 0.0001
+  weight_reg: 0.000001
+  communication_reg: 0.0
+  early_stop_patience: 5
+  early_stop_target_acc: 0.95
+
+analysis:
+  effect_threshold: 0.12
+  direct_threshold: 0.06
+  modulation_threshold: 0.04

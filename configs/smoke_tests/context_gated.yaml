@@ -1,0 +1,40 @@
+seed: 2
+device: auto
+output_dir: outputs/smoke/context_gated
+
+task:
+  name: ContextDependentDecisionTask
+  params:
+    seed: 2
+    cue_len: 8
+    stim_len: 20
+    delay_len: 8
+    response_len: 12
+    noise_std: 0.25
+
+model:
+  name: TwoRegionGatedRNN
+  params:
+    hidden_size_a: 28
+    hidden_size_b: 28
+    dt: 0.1
+    tau_a: 1.0
+    tau_b: 1.8
+    reciprocal: false
+    noise_std: 0.0
+
+train:
+  steps: 20
+  batch_size: 16
+  learning_rate: 0.003
+  eval_every: 5
+  val_batches: 3
+  grad_clip: 1.0
+  activity_reg: 0.0001
+  weight_reg: 0.000001
+  communication_reg: 0.0
+
+analysis:
+  effect_threshold: 0.10
+  direct_threshold: 0.05
+  modulation_threshold: 0.03

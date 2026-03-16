@@ -1,0 +1,40 @@
+seed: 1
+device: auto
+output_dir: outputs/smoke/binary_additive
+
+task:
+  name: BinaryCategorizationTask
+  params:
+    seed: 1
+    seq_len: 50
+    fix_len: 10
+    stim_len: 25
+    response_len: 15
+    noise_std: 0.20
+
+model:
+  name: TwoRegionAdditiveRNN
+  params:
+    hidden_size_a: 24
+    hidden_size_b: 24
+    dt: 0.1
+    tau_a: 1.0
+    tau_b: 1.6
+    reciprocal: false
+    noise_std: 0.0
+
+train:
+  steps: 20
+  batch_size: 16
+  learning_rate: 0.003
+  eval_every: 5
+  val_batches: 3
+  grad_clip: 1.0
+  activity_reg: 0.0001
+  weight_reg: 0.000001
+  communication_reg: 0.0
+
+analysis:
+  effect_threshold: 0.10
+  direct_threshold: 0.05
+  modulation_threshold: 0.03

@@ -1,0 +1,8 @@
+name: StateSettingTask
+params:
+  seed: 0
+  cue_len: 8
+  signal_len: 24
+  delay_len: 20
+  response_len: 16
+  noise_std: 0.20
