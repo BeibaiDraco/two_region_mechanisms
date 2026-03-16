@@ -175,6 +175,58 @@ The analysis proceeds in layers:
 
 Key design principle: the same D/M/E primitives are used everywhere, but each task defines what counts as the relevant outcome (routing selectivity for context, off-axis mode separation for state-setting, final |q| for binary/delayed/redundant).
 
+## Slide figures
+
+Each experiment has a minimal set of figures for presentation. The principle is: show (1) the task logic, (2) the key temporal mechanism evidence, (3) the task-specific result. Task schematics are not auto-generated — create those manually for your audience.
+
+### Binary additive (2-3 figures)
+
+| Figure | File | Shows |
+|---|---|---|
+| Canonical traces | `binary_additive.png` or `binary_additive_traces.png` | q, D, M, E over time with epoch shading |
+| Unique contribution + onset | `slide_unique_contribution.png` | D unique=0.81 bar + onset ordering D->M->q |
+| Optional: hi/lo split | `binary_additive_hilo.png` | High vs low final q within coherence |
+
+### Delayed gated (3-4 figures)
+
+| Figure | File | Shows |
+|---|---|---|
+| Canonical traces | `delayed_gated.png` | q, D, M, E with stimulus/delay/response shading |
+| Within-coherence hi/lo | `canonical_delayed_gated.png` | High vs low final q, delay-period M separation |
+| Timing + unique contribution | `slide_unique_contribution.png` | M-first onset ordering + stim->resp and delay->resp unique bars |
+| Optional: within-coherence M | `canonical_within_coherence.png` | Per-coherence hi/lo M and D traces |
+
+### Context gated (3 figures)
+
+| Figure | File | Shows |
+|---|---|---|
+| Time-resolved routing | `slide_routing_timecourse.png` | Relevant vs irrelevant slope + normalized selectivity over time |
+| Epoch routing summary | `slide_routing_epoch.png` | Relevant vs irrelevant slope bars by epoch |
+| Coupled vs decoupled | `slide_routing_coupled_decoupled.png` | Routing selectivity collapses when decoupled |
+
+### State setting (4-5 figures)
+
+| Figure | File | Shows |
+|---|---|---|
+| Paired-triplet traces | `triplet_traces.png` | Same input, 3 modes — coupled vs decoupled |
+| Rule-aligned transfer | `rule_aligned_transfer.png` | Time-varying slope of q on rule-relevant variable per mode |
+| Alpha vs beta separation | `readout_vs_orthogonal.png` | Mode separation lives off readout axis |
+| D/M/alpha/beta bridge | `dme_geometry_bridge.png` | Temporal ordering: beta first, then M, then alpha |
+| Mode summary | `slide_mode_summary.png` | Hidden-state separation + mode spread + triplet spread bars |
+
+### Redundant lowrank (2 figures)
+
+| Figure | File | Shows |
+|---|---|---|
+| Canonical traces | `redundant_lowrank.png` | q, D, M, E over time |
+| Cost + unique contribution | `slide_cost_and_unique.png` | Decoupling cost by difficulty (~65% at all levels) + D unique=0.77 |
+
+All slide figures are in `outputs/experiments/{name}/figures/`. Generate them with:
+
+```bash
+python scripts/make_slide_figures.py
+```
+
 ## Output files
 
 Each run directory stores:
