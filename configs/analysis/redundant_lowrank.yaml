@@ -1,0 +1,45 @@
+task_name: RedundantInputControlTask
+experiment: redundant_lowrank
+run_dir: outputs/experiments/redundant_lowrank
+
+primary_question: "When B can solve the task itself, does A→B remain useful, become a backup, or go unused?"
+
+epochs:
+  fixation: [0, fix_len]
+  stimulus: [fix_len, stim_end]
+  response: [stim_end, seq_len]
+
+primary_epochs: [stimulus]
+secondary_epochs: [response]
+
+meta_fields:
+  coherence: coherence
+  label: label
+  difficulty: abs_coherence
+
+primary_splits:
+  - name: by_difficulty
+    group_by: difficulty
+    split_by: null
+    method: condition
+  - name: within_difficulty_high_low
+    group_by: difficulty
+    split_by: final_abs_q
+    method: median
+
+headline_metrics:
+  - stim_d_auc
+  - stim_m_auc
+  - stim_d_auc_by_difficulty
+  - stim_m_auc_by_difficulty
+  - decoupling_cost_by_difficulty
+  - d_onset
+  - m_onset
+
+decision_patterns:
+  truly_redundant:
+    description: "Weak D and M everywhere, little decoupling cost"
+  backup_direct:
+    description: "D increases on hard trials, M remains weak"
+  backup_modulatory:
+    description: "M rises on hard trials but remains weak overall"

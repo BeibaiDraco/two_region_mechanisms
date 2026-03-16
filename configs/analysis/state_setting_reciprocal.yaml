@@ -1,0 +1,52 @@
+task_name: StateSettingTask
+experiment: state_setting_reciprocal
+run_dir: outputs/experiments/state_setting_reciprocal
+
+primary_question: "Does A use the cue to place B into different dynamical regimes before later computation?"
+
+epochs:
+  cue: [0, cue_len]
+  signal: [cue_len, sig_end]
+  delay: [sig_end, delay_end]
+  response: [delay_end, seq_len]
+
+primary_epochs: [cue, delay]
+secondary_epochs: [signal, response]
+
+meta_fields:
+  mode: mode
+  label: label
+
+mode_names:
+  0: integrate
+  1: memory
+  2: transient
+
+primary_splits:
+  - name: by_mode
+    group_by: mode
+    split_by: null
+    method: condition
+  - name: within_mode_high_low
+    group_by: mode
+    split_by: final_abs_q
+    method: median
+
+headline_metrics:
+  - cue_m_auc
+  - cue_d_auc
+  - delay_m_auc
+  - delay_d_auc
+  - m_onset
+  - d_onset
+  - q_onset
+  - mode_conditioned_m_divergence_time
+  - mode_conditioned_q_divergence_time
+
+decision_patterns:
+  genuine_state_setting:
+    description: "Strong cue-period M, sustained delay M, later response depends on mode"
+  direct_cue_injection:
+    description: "Cue-period D but weak sustained M, differences from leftover drive"
+  mixed_state_setting:
+    description: "Cue-period M plus later D around signal/probe"

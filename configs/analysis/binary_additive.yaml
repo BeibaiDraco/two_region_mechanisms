@@ -1,0 +1,43 @@
+task_name: BinaryCategorizationTask
+experiment: binary_additive
+run_dir: outputs/experiments/binary_additive
+
+primary_question: "Is binary categorization basically direct transmission, or is there real stimulus-period modulation?"
+
+epochs:
+  fixation: [0, fix_len]
+  stimulus: [fix_len, stim_end]
+  response: [stim_end, seq_len]
+
+primary_epochs: [stimulus]
+secondary_epochs: [response]
+
+meta_fields:
+  coherence: coherence
+  label: label
+  difficulty: abs_coherence
+
+primary_splits:
+  - name: within_coherence_high_low
+    group_by: difficulty
+    split_by: final_abs_q
+    method: median
+
+headline_metrics:
+  - stim_d_auc
+  - stim_m_auc
+  - stim_d_peak
+  - stim_m_peak
+  - d_onset
+  - m_onset
+  - q_onset
+  - corr_stim_d_auc_final_abs_q_partial
+  - corr_stim_m_auc_final_abs_q_partial
+
+decision_patterns:
+  direct_dominant:
+    description: "D rises promptly, q follows, stim D >> stim M, D predicts final q better"
+    indicators: [stim_d_auc_gt_stim_m_auc, d_onset_before_m_onset]
+  weak_mixed:
+    description: "M also rises during stimulus but is transient and does not persist"
+    indicators: [stim_m_auc_nonzero, m_not_sustained]

@@ -1,0 +1,47 @@
+task_name: DelayedCategorizationTask
+experiment: delayed_gated
+run_dir: outputs/experiments/delayed_gated
+
+primary_question: "Does delay-period modulation support later readout strength beyond direct forcing?"
+
+epochs:
+  fixation: [0, fix_len]
+  stimulus: [fix_len, stim_end]
+  delay: [stim_end, delay_end]
+  response: [delay_end, seq_len]
+
+primary_epochs: [delay]
+secondary_epochs: [stimulus, response]
+
+meta_fields:
+  coherence: coherence
+  label: label
+  difficulty: abs_coherence
+
+primary_splits:
+  - name: within_coherence_high_low
+    group_by: difficulty
+    split_by: final_abs_q
+    method: median
+
+headline_metrics:
+  - d_onset
+  - m_onset
+  - q_onset
+  - delay_m_auc
+  - delay_d_auc
+  - delay_m_peak
+  - delay_d_peak
+  - d_peak_time
+  - m_peak_time
+  - q_peak_time
+  - corr_delay_m_auc_final_abs_q_partial
+  - corr_delay_d_auc_final_abs_q_partial
+
+decision_patterns:
+  early_direct_write:
+    description: "D rises during stimulus, q follows, delay M is weak"
+  delay_conditioning:
+    description: "M rises before/with D, delay M predicts final q within coherence"
+  temporally_mixed:
+    description: "Early M, strong D during buildup, persistent delay M"

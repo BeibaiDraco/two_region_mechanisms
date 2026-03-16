@@ -1,0 +1,85 @@
+# Shared profile schema — every task emits this structure
+# Task-specific sections override the "task_specific" block
+
+shared:
+  identity:
+    - task_name
+    - model_name
+    - run_dir
+    - epochs
+    - primary_question
+
+  core_traces:
+    - q          # (N, T)
+    - D          # (N, T)
+    - M          # (N, T)
+    - E          # (N, T)
+
+  timing:
+    - D_onset
+    - M_onset
+    - q_onset
+    - D_peak_time
+    - M_peak_time
+    - q_peak_time
+
+  epoch_features:
+    per_epoch:
+      - D_auc
+      - M_auc
+      - E_auc
+      - q_mean
+
+  necessity:
+    - coupled_accuracy
+    - decoupled_accuracy
+    - coupled_response_q
+    - decoupled_response_q
+
+  strategy_label: null  # filled per task
+
+tasks:
+  binary_additive:
+    primary_question: "Direct transmission vs stimulus-period modulation"
+    strategy_labels: [direct_dominant, weak_mixed, stimulus_modulated_direct]
+    headline_metrics:
+      - stim_D_unique_of_M
+      - stim_M_unique_of_D
+      - D_onset_before_M
+
+  delayed_gated:
+    primary_question: "Direct write-in vs delay-period modulation vs temporal staging"
+    strategy_labels: [early_direct_write, delay_conditioning, temporally_mixed, M_first_delay_supported]
+    headline_metrics:
+      - delay_M_unique_of_D
+      - delay_D_unique_of_M
+      - stim_M_unique_of_D
+      - M_onset_before_D
+
+  context_gated:
+    primary_question: "Context regime setting vs evidence routing vs irrelevant suppression"
+    strategy_labels: [routing_modulatory, mixed_routing, cue_set_then_route, weak_routing]
+    headline_metrics:
+      - response_relevant_slope
+      - response_irrelevant_leakage
+      - response_routing_selectivity
+      - routing_selectivity_coupled_minus_decoupled
+
+  state_setting_reciprocal:
+    primary_question: "Cue-dependent regime setting — readout-axis vs off-axis hidden state"
+    strategy_labels: [regime_setting_modulatory, off_axis_mode_control, cue_written_hidden_regime]
+    headline_metrics:
+      - response_beta_separation
+      - response_alpha_separation
+      - triplet_beta_spread_coupled
+      - triplet_beta_spread_decoupled
+      - transfer_slope_spread_coupled
+
+  redundant_lowrank:
+    primary_question: "Backup/direct use when B has redundant access to evidence"
+    strategy_labels: [direct_backup, weak_use, difficulty_gated_backup]
+    headline_metrics:
+      - stim_D_unique_of_M
+      - stim_M_unique_of_D
+      - relative_decoupling_cost_mean
+      - relative_cost_difficulty_slope

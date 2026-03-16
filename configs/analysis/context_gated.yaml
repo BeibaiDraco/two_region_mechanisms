@@ -1,0 +1,56 @@
+task_name: ContextDependentDecisionTask
+experiment: context_gated
+run_dir: outputs/experiments/context_gated
+
+primary_question: "Does A configure B before evidence is used, or mainly push relevant evidence during stimulus?"
+
+epochs:
+  cue: [0, cue_len]
+  stimulus: [cue_len, stim_end]
+  delay: [stim_end, delay_end]
+  response: [delay_end, seq_len]
+
+primary_epochs: [cue, stimulus]
+secondary_epochs: [delay, response]
+
+meta_fields:
+  coh1: coh1
+  coh2: coh2
+  context: context
+  label: label
+  relevant_coherence: derived
+  irrelevant_coherence: derived
+  difficulty: abs_relevant_coherence
+
+primary_splits:
+  - name: by_context
+    group_by: context
+    split_by: null
+    method: condition
+  - name: matched_evidence_different_context
+    group_by: relevant_coherence_bin
+    split_by: context
+    method: condition
+  - name: within_difficulty_high_low
+    group_by: difficulty
+    split_by: final_abs_q
+    method: median
+
+headline_metrics:
+  - cue_m_auc
+  - cue_d_auc
+  - stim_m_auc
+  - stim_d_auc
+  - m_onset
+  - d_onset
+  - q_onset
+  - context_conditioned_m_divergence_time
+  - corr_cue_m_auc_final_abs_q_partial
+
+decision_patterns:
+  context_setting_modulation:
+    description: "Strong cue-period M, M differs by context before q diverges"
+  direct_evidence_routing:
+    description: "D strongest during stimulus, M weaker or cue-locked"
+  mixed_routing:
+    description: "Cue-period M sets regime, stimulus-period D carries content"
