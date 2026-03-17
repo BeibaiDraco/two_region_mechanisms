@@ -1,0 +1,31 @@
+{
+  "experiment": "state_setting__reciprocal_context__seed3",
+  "task": "StateSettingTask",
+  "model": "TwoRegionReciprocalContextRNN",
+  "seed": 3,
+  "D_J_mean": 1.0,
+  "M_J_mean": 1.0,
+  "E_J_mean": 1.0,
+  "mechanism_class_mode": "(1,1)",
+  "mechanism_class_counts": {
+    "(1,1)": 1
+  },
+  "max_abs_delta_q_mean": 1.4514080286026,
+  "max_abs_direct_mean": 0.13929340243339539,
+  "max_abs_modulation_mean": 0.9167268872261047,
+  "auc_delta_q_mean": 39.69145202636719,
+  "auc_direct_mean": 1.6848719120025635,
+  "auc_modulation_mean": 8.640554428100586,
+  "n_trials_total": 256,
+  "trial_D_max_median": 0.07051718235015869,
+  "trial_D_max_p90": 0.10224772989749908,
+  "trial_M_max_median": 0.3770056962966919,
+  "trial_M_max_p90": 0.6572682857513428,
+  "trial_M_mean_median": 0.1443065106868744,
+  "trial_M_mean_p90": 0.22824065387248993,
+  "trial_E_max_median": 1.1162669658660889,
+  "trial_E_max_p90": 1.3240282535552979,
+  "frac_trials_D_above": 0.66015625,
+  "frac_trials_M_above": 1.0,
+  "frac_trials_E_above": 1.0
+}

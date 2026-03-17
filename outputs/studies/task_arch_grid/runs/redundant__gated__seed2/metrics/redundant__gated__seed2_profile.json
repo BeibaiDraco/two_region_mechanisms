@@ -1,0 +1,17 @@
+{
+  "experiment": "redundant__gated__seed2",
+  "task": "RedundantInputControlTask",
+  "n": 256,
+  "primary": "stimulus",
+  "outcome": "response",
+  "strict": true,
+  "d_onset": 14.5,
+  "m_onset": 29.2,
+  "q_onset": 18.2,
+  "uc_raw_d": 0.3944,
+  "uc_raw_m": 0.1892,
+  "uc_d_unique_of_m": 0.7916,
+  "uc_d_unique_p": 0.0,
+  "uc_m_unique_of_d": -0.6164,
+  "uc_m_unique_p": 0.0
+}

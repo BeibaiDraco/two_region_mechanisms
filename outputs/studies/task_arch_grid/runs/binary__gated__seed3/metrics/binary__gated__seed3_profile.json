@@ -1,0 +1,17 @@
+{
+  "experiment": "binary__gated__seed3",
+  "task": "BinaryCategorizationTask",
+  "n": 256,
+  "primary": "stimulus",
+  "outcome": "response",
+  "strict": true,
+  "d_onset": 14.9,
+  "m_onset": 31.3,
+  "q_onset": 19.6,
+  "uc_raw_d": 0.4681,
+  "uc_raw_m": 0.211,
+  "uc_d_unique_of_m": 0.6057,
+  "uc_d_unique_p": 0.0,
+  "uc_m_unique_of_d": -0.2808,
+  "uc_m_unique_p": 5e-06
+}

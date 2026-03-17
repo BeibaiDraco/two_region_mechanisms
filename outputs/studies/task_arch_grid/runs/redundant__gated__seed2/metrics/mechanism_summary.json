@@ -1,0 +1,31 @@
+{
+  "experiment": "redundant__gated__seed2",
+  "task": "RedundantInputControlTask",
+  "model": "TwoRegionGatedRNN",
+  "seed": 2,
+  "D_J_mean": 1.0,
+  "M_J_mean": 1.0,
+  "E_J_mean": 1.0,
+  "mechanism_class_mode": "(1,1)",
+  "mechanism_class_counts": {
+    "(1,1)": 1
+  },
+  "max_abs_delta_q_mean": 1.0036243200302124,
+  "max_abs_direct_mean": 0.07426810264587402,
+  "max_abs_modulation_mean": 1.6263630390167236,
+  "auc_delta_q_mean": 17.79317855834961,
+  "auc_direct_mean": 1.6205527782440186,
+  "auc_modulation_mean": 19.167266845703125,
+  "n_trials_total": 256,
+  "trial_D_max_median": 0.06789463758468628,
+  "trial_D_max_p90": 0.07192158699035645,
+  "trial_M_max_median": 1.370917797088623,
+  "trial_M_max_p90": 1.6210342645645142,
+  "trial_M_mean_median": 0.4414624571800232,
+  "trial_M_mean_p90": 0.5501660108566284,
+  "trial_E_max_median": 0.8278249502182007,
+  "trial_E_max_p90": 0.8967727422714233,
+  "frac_trials_D_above": 0.9921875,
+  "frac_trials_M_above": 1.0,
+  "frac_trials_E_above": 1.0
+}

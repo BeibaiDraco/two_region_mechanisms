@@ -1,0 +1,31 @@
+{
+  "experiment": "delayed__additive__seed2",
+  "task": "DelayedCategorizationTask",
+  "model": "TwoRegionAdditiveRNN",
+  "seed": 2,
+  "D_J_mean": 0.0,
+  "M_J_mean": 1.0,
+  "E_J_mean": 1.0,
+  "mechanism_class_mode": "(0,1)",
+  "mechanism_class_counts": {
+    "(0,1)": 1
+  },
+  "max_abs_delta_q_mean": 1.0538748502731323,
+  "max_abs_direct_mean": 0.04293659329414368,
+  "max_abs_modulation_mean": 0.961866557598114,
+  "auc_delta_q_mean": 35.01892852783203,
+  "auc_direct_mean": 1.0737093687057495,
+  "auc_modulation_mean": 14.820789337158203,
+  "n_trials_total": 256,
+  "trial_D_max_median": 0.03432747721672058,
+  "trial_D_max_p90": 0.04153038561344147,
+  "trial_M_max_median": 0.9046075344085693,
+  "trial_M_max_p90": 0.9507217407226562,
+  "trial_M_mean_median": 0.24702398478984833,
+  "trial_M_mean_p90": 0.3017372488975525,
+  "trial_E_max_median": 1.0407030582427979,
+  "trial_E_max_p90": 1.0503473281860352,
+  "frac_trials_D_above": 0.0,
+  "frac_trials_M_above": 1.0,
+  "frac_trials_E_above": 1.0
+}

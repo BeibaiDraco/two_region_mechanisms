@@ -1,0 +1,17 @@
+{
+  "experiment": "delayed__gated__seed1",
+  "task": "DelayedCategorizationTask",
+  "n": 256,
+  "primary": "stimulus",
+  "outcome": "response",
+  "strict": true,
+  "d_onset": 16.8,
+  "m_onset": 40.7,
+  "q_onset": 23.6,
+  "uc_raw_d": -0.0214,
+  "uc_raw_m": -0.0324,
+  "uc_d_unique_of_m": 0.0679,
+  "uc_d_unique_p": 0.278948,
+  "uc_m_unique_of_d": -0.1158,
+  "uc_m_unique_p": 0.064379
+}

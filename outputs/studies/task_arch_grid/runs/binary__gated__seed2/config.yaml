@@ -1,0 +1,44 @@
+study:
+  name: task_arch_grid_v1
+  task_key: binary
+  architecture_key: gated
+  seed: 2
+seed: 2
+device: cuda
+task:
+  name: BinaryCategorizationTask
+  params:
+    seed: 2
+    seq_len: 50
+    fix_len: 10
+    stim_len: 25
+    response_len: 15
+    noise_std: 0.2
+model:
+  name: TwoRegionGatedRNN
+  params:
+    hidden_size_a: 64
+    hidden_size_b: 64
+    dt: 0.1
+    tau_a: 1.0
+    tau_b: 1.8
+    reciprocal: false
+    noise_std: 0.0
+train:
+  steps: 1000
+  batch_size: 64
+  learning_rate: 0.001
+  eval_every: 50
+  val_batches: 8
+  grad_clip: 1.0
+  activity_reg: 0.0001
+  weight_reg: 1.0e-06
+  communication_reg: 0.0
+  early_stop_patience: 5
+  early_stop_target_acc: 0.95
+  device: cuda
+analysis:
+  effect_threshold: 0.12
+  direct_threshold: 0.06
+  modulation_threshold: 0.04
+output_dir: outputs/studies/task_arch_grid/runs/binary__gated__seed2

@@ -1,0 +1,63 @@
+{
+  "run_name": "state_setting__gated__seed1",
+  "task": "StateSettingTask",
+  "model": "TwoRegionGatedRNN",
+  "seed": 1,
+  "best_val_accuracy": 1.0,
+  "best_step": 350.0,
+  "mechanism_class_mode": "(1,1)",
+  "strategy_label": "(1,1)",
+  "threshold_robustness": "robust (1,1)",
+  "threshold_robustness_maxmean": "robust (1,1)",
+  "task_profile": {
+    "experiment": "state_setting__gated__seed1",
+    "n": 256
+  },
+  "mechanism_summary": {
+    "experiment": "state_setting__gated__seed1",
+    "task": "StateSettingTask",
+    "model": "TwoRegionGatedRNN",
+    "seed": 1,
+    "D_J_mean": 1.0,
+    "M_J_mean": 1.0,
+    "E_J_mean": 1.0,
+    "mechanism_class_mode": "(1,1)",
+    "mechanism_class_counts": {
+      "(1,1)": 1
+    },
+    "max_abs_delta_q_mean": 1.6258741617202759,
+    "max_abs_direct_mean": 0.15474453568458557,
+    "max_abs_modulation_mean": 0.7590367197990417,
+    "auc_delta_q_mean": 42.584083557128906,
+    "auc_direct_mean": 1.9982006549835205,
+    "auc_modulation_mean": 11.856244087219238,
+    "n_trials_total": 256,
+    "trial_D_max_median": 0.08166908472776413,
+    "trial_D_max_p90": 0.12929272651672363,
+    "trial_M_max_median": 0.561253547668457,
+    "trial_M_max_p90": 0.6997605562210083,
+    "trial_M_mean_median": 0.18351183831691742,
+    "trial_M_mean_p90": 0.2631082534790039,
+    "trial_E_max_median": 1.1950631141662598,
+    "trial_E_max_p90": 1.46964430809021,
+    "frac_trials_D_above": 0.71484375,
+    "frac_trials_M_above": 1.0,
+    "frac_trials_E_above": 1.0
+  },
+  "eval_metrics": {
+    "D_J": 1,
+    "M_J": 1,
+    "E_J": 1,
+    "mechanism_class": "(1,1)",
+    "max_abs_delta_q": 1.6258741617202759,
+    "mean_abs_delta_q": 0.6334646344184875,
+    "auc_delta_q": 42.584083557128906,
+    "time_to_divergence_mean": 15.55078125,
+    "max_abs_direct": 0.15474453568458557,
+    "mean_abs_direct": 0.02945924922823906,
+    "auc_direct": 1.9982006549835205,
+    "max_abs_modulation": 0.7590367197990417,
+    "mean_abs_modulation": 0.17641936242580414,
+    "auc_modulation": 11.856244087219238
+  }
+}

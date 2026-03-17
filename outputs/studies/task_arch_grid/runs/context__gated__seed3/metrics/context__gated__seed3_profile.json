@@ -1,0 +1,6 @@
+{
+  "experiment": "context__gated__seed3",
+  "n": 256,
+  "m_div": 19,
+  "q_div": 2
+}

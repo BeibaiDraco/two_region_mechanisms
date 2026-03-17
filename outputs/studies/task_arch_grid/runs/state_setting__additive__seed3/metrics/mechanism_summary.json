@@ -1,0 +1,31 @@
+{
+  "experiment": "state_setting__additive__seed3",
+  "task": "StateSettingTask",
+  "model": "TwoRegionAdditiveRNN",
+  "seed": 3,
+  "D_J_mean": 1.0,
+  "M_J_mean": 1.0,
+  "E_J_mean": 1.0,
+  "mechanism_class_mode": "(1,1)",
+  "mechanism_class_counts": {
+    "(1,1)": 1
+  },
+  "max_abs_delta_q_mean": 2.1858344078063965,
+  "max_abs_direct_mean": 0.157326340675354,
+  "max_abs_modulation_mean": 1.5584862232208252,
+  "auc_delta_q_mean": 41.93007278442383,
+  "auc_direct_mean": 2.181661605834961,
+  "auc_modulation_mean": 15.05363655090332,
+  "n_trials_total": 256,
+  "trial_D_max_median": 0.08250680565834045,
+  "trial_D_max_p90": 0.13174286484718323,
+  "trial_M_max_median": 0.4341980218887329,
+  "trial_M_max_p90": 1.4779891967773438,
+  "trial_M_mean_median": 0.14432156085968018,
+  "trial_M_mean_p90": 0.490651935338974,
+  "trial_E_max_median": 1.2187066078186035,
+  "trial_E_max_p90": 1.9939135313034058,
+  "frac_trials_D_above": 0.76953125,
+  "frac_trials_M_above": 1.0,
+  "frac_trials_E_above": 1.0
+}

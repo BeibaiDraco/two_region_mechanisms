@@ -1,0 +1,17 @@
+{
+  "experiment": "redundant__additive__seed2",
+  "task": "RedundantInputControlTask",
+  "n": 256,
+  "primary": "stimulus",
+  "outcome": "response",
+  "strict": true,
+  "d_onset": 14.4,
+  "m_onset": 29.1,
+  "q_onset": 17.8,
+  "uc_raw_d": 0.3128,
+  "uc_raw_m": 0.1679,
+  "uc_d_unique_of_m": 0.7552,
+  "uc_d_unique_p": 0.0,
+  "uc_m_unique_of_d": -0.6084,
+  "uc_m_unique_p": 0.0
+}

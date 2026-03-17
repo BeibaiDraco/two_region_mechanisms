@@ -1,0 +1,17 @@
+{
+  "experiment": "binary__additive__seed2",
+  "task": "BinaryCategorizationTask",
+  "n": 256,
+  "primary": "stimulus",
+  "outcome": "response",
+  "strict": true,
+  "d_onset": 14.1,
+  "m_onset": 32.5,
+  "q_onset": 19.3,
+  "uc_raw_d": 0.5736,
+  "uc_raw_m": 0.2928,
+  "uc_d_unique_of_m": 0.8324,
+  "uc_d_unique_p": 0.0,
+  "uc_m_unique_of_d": -0.261,
+  "uc_m_unique_p": 2.3e-05
+}

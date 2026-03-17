@@ -1,0 +1,16 @@
+{
+  "D_J": 1,
+  "M_J": 1,
+  "E_J": 1,
+  "mechanism_class": "(1,1)",
+  "max_abs_delta_q": 0.9612110257148743,
+  "mean_abs_delta_q": 0.3919704258441925,
+  "auc_delta_q": 18.499353408813477,
+  "time_to_divergence_mean": 17.6171875,
+  "max_abs_direct": 0.0788760781288147,
+  "mean_abs_direct": 0.031058231368660927,
+  "auc_direct": 1.471010684967041,
+  "max_abs_modulation": 1.3072295188903809,
+  "mean_abs_modulation": 0.3539336919784546,
+  "auc_modulation": 16.393035888671875
+}

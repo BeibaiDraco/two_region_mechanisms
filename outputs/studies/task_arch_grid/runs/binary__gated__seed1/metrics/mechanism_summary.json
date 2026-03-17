@@ -1,0 +1,31 @@
+{
+  "experiment": "binary__gated__seed1",
+  "task": "BinaryCategorizationTask",
+  "model": "TwoRegionGatedRNN",
+  "seed": 1,
+  "D_J_mean": 1.0,
+  "M_J_mean": 1.0,
+  "E_J_mean": 1.0,
+  "mechanism_class_mode": "(1,1)",
+  "mechanism_class_counts": {
+    "(1,1)": 1
+  },
+  "max_abs_delta_q_mean": 1.093098759651184,
+  "max_abs_direct_mean": 0.10273981094360352,
+  "max_abs_modulation_mean": 1.7238099575042725,
+  "auc_delta_q_mean": 26.30290985107422,
+  "auc_direct_mean": 1.0744553804397583,
+  "auc_modulation_mean": 17.912174224853516,
+  "n_trials_total": 256,
+  "trial_D_max_median": 0.0837247371673584,
+  "trial_D_max_p90": 0.09719213843345642,
+  "trial_M_max_median": 1.3377530574798584,
+  "trial_M_max_p90": 1.7021477222442627,
+  "trial_M_mean_median": 0.3893136978149414,
+  "trial_M_mean_p90": 0.5107084512710571,
+  "trial_E_max_median": 1.0552952289581299,
+  "trial_E_max_p90": 1.081373691558838,
+  "frac_trials_D_above": 0.95703125,
+  "frac_trials_M_above": 1.0,
+  "frac_trials_E_above": 1.0
+}

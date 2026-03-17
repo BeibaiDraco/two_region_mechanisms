@@ -1,0 +1,31 @@
+{
+  "experiment": "delayed__gated__seed3",
+  "task": "DelayedCategorizationTask",
+  "model": "TwoRegionGatedRNN",
+  "seed": 3,
+  "D_J_mean": 0.0,
+  "M_J_mean": 1.0,
+  "E_J_mean": 1.0,
+  "mechanism_class_mode": "(0,1)",
+  "mechanism_class_counts": {
+    "(0,1)": 1
+  },
+  "max_abs_delta_q_mean": 1.0828183889389038,
+  "max_abs_direct_mean": 0.059699833393096924,
+  "max_abs_modulation_mean": 1.1058710813522339,
+  "auc_delta_q_mean": 33.36869812011719,
+  "auc_direct_mean": 1.2025529146194458,
+  "auc_modulation_mean": 16.530723571777344,
+  "n_trials_total": 256,
+  "trial_D_max_median": 0.045286983251571655,
+  "trial_D_max_p90": 0.05764538049697876,
+  "trial_M_max_median": 0.8417106866836548,
+  "trial_M_max_p90": 1.0982197523117065,
+  "trial_M_mean_median": 0.27506178617477417,
+  "trial_M_mean_p90": 0.35685592889785767,
+  "trial_E_max_median": 0.9566859006881714,
+  "trial_E_max_p90": 1.060248613357544,
+  "frac_trials_D_above": 0.0,
+  "frac_trials_M_above": 1.0,
+  "frac_trials_E_above": 1.0
+}

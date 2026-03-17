@@ -1,0 +1,31 @@
+{
+  "experiment": "redundant__additive__seed2",
+  "task": "RedundantInputControlTask",
+  "model": "TwoRegionAdditiveRNN",
+  "seed": 2,
+  "D_J_mean": 1.0,
+  "M_J_mean": 1.0,
+  "E_J_mean": 1.0,
+  "mechanism_class_mode": "(1,1)",
+  "mechanism_class_counts": {
+    "(1,1)": 1
+  },
+  "max_abs_delta_q_mean": 0.874862790107727,
+  "max_abs_direct_mean": 0.07547271251678467,
+  "max_abs_modulation_mean": 0.9911746978759766,
+  "auc_delta_q_mean": 13.462867736816406,
+  "auc_direct_mean": 1.6224853992462158,
+  "auc_modulation_mean": 13.356225967407227,
+  "n_trials_total": 256,
+  "trial_D_max_median": 0.07362863421440125,
+  "trial_D_max_p90": 0.07500502467155457,
+  "trial_M_max_median": 0.9258641004562378,
+  "trial_M_max_p90": 0.976634681224823,
+  "trial_M_mean_median": 0.31181269884109497,
+  "trial_M_mean_p90": 0.34096986055374146,
+  "trial_E_max_median": 0.7362000942230225,
+  "trial_E_max_p90": 0.8206901550292969,
+  "frac_trials_D_above": 0.99609375,
+  "frac_trials_M_above": 1.0,
+  "frac_trials_E_above": 1.0
+}

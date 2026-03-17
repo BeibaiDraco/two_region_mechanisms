@@ -1,0 +1,2 @@
+experiment,task,model,robustness_max,robustness_maxmean,pct_mixed_max,pct_direct_only_max,pct_mod_only_max,pct_none_max,pct_mixed_maxmean,pct_direct_only_maxmean,current_d_thresh,current_m_thresh
+context__additive__seed1,ContextDependentDecisionTask,TwoRegionAdditiveRNN,"leaning (1,1)","leaning (0,1)",50.0,0.0,50.0,0.0,40.0,0.0,0.06,0.04

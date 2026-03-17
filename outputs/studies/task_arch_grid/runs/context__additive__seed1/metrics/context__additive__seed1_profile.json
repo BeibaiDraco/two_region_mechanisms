@@ -1,0 +1,6 @@
+{
+  "experiment": "context__additive__seed1",
+  "n": 256,
+  "m_div": 20,
+  "q_div": 12
+}
