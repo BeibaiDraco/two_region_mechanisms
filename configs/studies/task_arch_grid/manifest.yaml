@@ -1,0 +1,42 @@
+study_name: task_arch_grid_v1
+output_root: outputs/studies/task_arch_grid/runs
+generated_config_dir: configs/studies/task_arch_grid/generated
+seeds: [1, 2, 3]
+
+tasks:
+  - binary
+  - delayed
+  - context
+  - redundant
+  - state_setting
+
+architectures:
+  - additive
+  - gated
+  - lowrank
+  - reciprocal_context
+
+task_arch_allowlist:
+  binary: [additive, gated]
+  delayed: [additive, gated]
+  context: [additive, gated]
+  redundant: [additive, gated]
+  state_setting: [additive, gated, reciprocal_context]
+
+train_template:
+  steps: 1000
+  batch_size: 64
+  learning_rate: 0.001
+  eval_every: 50
+  val_batches: 8
+  grad_clip: 1.0
+  activity_reg: 0.0001
+  weight_reg: 0.000001
+  communication_reg: 0.0
+  early_stop_patience: 5
+  early_stop_target_acc: 0.95
+
+analysis_template:
+  effect_threshold: 0.12
+  direct_threshold: 0.06
+  modulation_threshold: 0.04

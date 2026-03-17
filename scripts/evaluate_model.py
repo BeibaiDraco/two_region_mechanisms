@@ -13,6 +13,7 @@ if str(ROOT) not in sys.path:
     sys.path.append(str(ROOT))
 
 from src.analysis.mechanism_classification import classify_mechanism
+from src.analysis.eval_cache import load_or_create_eval_batch
 from src.analysis.manifolds import pca_project
 from src.analysis.rollout import load_run_artifacts
 from src.utils.io import save_json
@@ -24,10 +25,19 @@ def main():
     parser.add_argument("--run-dir", type=str, required=True)
     parser.add_argument("--checkpoint", type=str, default="best.pt")
     parser.add_argument("--batch-size", type=int, default=32)
+    parser.add_argument("--eval-cache", type=str, default=None)
+    parser.add_argument("--refresh-eval-cache", action="store_true")
     args = parser.parse_args()
 
     cfg, task, model, _ = load_run_artifacts(args.run_dir, checkpoint_name=args.checkpoint, map_location="cpu")
-    batch = task.sample_batch(args.batch_size, split="val", device="cpu")
+    batch = load_or_create_eval_batch(
+        task,
+        n_trials=args.batch_size,
+        device="cpu",
+        split="val",
+        cache_path=args.eval_cache,
+        refresh=args.refresh_eval_cache,
+    )
 
     analysis_cfg = cfg.get("analysis", {})
     result = classify_mechanism(model, task, batch, thresholds=analysis_cfg)

@@ -13,6 +13,7 @@ if str(ROOT) not in sys.path:
     sys.path.append(str(ROOT))
 
 from src.analysis.mechanism_classification import classify_mechanism
+from src.analysis.eval_cache import load_or_create_eval_batch
 from src.analysis.rollout import load_run_artifacts
 from src.utils.io import save_json
 from src.utils.plotting import (
@@ -30,6 +31,8 @@ def main():
     parser.add_argument("--checkpoint", type=str, default="best.pt")
     parser.add_argument("--num-batches", type=int, default=8)
     parser.add_argument("--batch-size", type=int, default=32)
+    parser.add_argument("--eval-cache", type=str, default=None)
+    parser.add_argument("--refresh-eval-cache", action="store_true")
     args = parser.parse_args()
 
     cfg, task, model, _ = load_run_artifacts(
@@ -57,8 +60,23 @@ def main():
     all_e_per_trial_max, all_e_per_trial_mean, all_e_per_trial_auc = [], [], []
     trial_rows = []
 
-    for batch_idx in range(args.num_batches):
-        batch = task.sample_batch(args.batch_size, split="val", device="cpu")
+    if args.eval_cache:
+        cached_batch = load_or_create_eval_batch(
+            task,
+            n_trials=args.batch_size,
+            device="cpu",
+            split="val",
+            cache_path=args.eval_cache,
+            refresh=args.refresh_eval_cache,
+        )
+        batches = [cached_batch]
+    else:
+        batches = [
+            task.sample_batch(args.batch_size, split="val", device="cpu")
+            for _ in range(args.num_batches)
+        ]
+
+    for batch_idx, batch in enumerate(batches):
         result = classify_mechanism(model, task, batch, thresholds=analysis_cfg)
         summaries.append(result["summary"])
 

@@ -1,0 +1,8 @@
+name: DelayedCategorizationTask
+params:
+  seed: 0
+  fix_len: 10
+  stim_len: 20
+  delay_len: 20
+  response_len: 15
+  noise_std: 0.20

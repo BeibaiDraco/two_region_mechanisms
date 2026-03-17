@@ -18,6 +18,7 @@ if str(ROOT) not in sys.path:
 
 from src.analysis.mechanism_classification import (
     estimate_realized_effect, estimate_direct_forcing, estimate_modulation)
+from src.analysis.eval_cache import load_or_create_eval_batch
 from src.analysis.readouts import default_readout
 from src.analysis.rollout import load_run_artifacts
 from src.analysis.task_profiles import (
@@ -31,9 +32,16 @@ from src.utils.io import save_json
 EC = {"fixation":"#bdbdbd","cue":"#c7b8ea","stimulus":"#aec7e8",
       "signal":"#aec7e8","delay":"#ffbb78","response":"#98df8a"}
 
-def collect_data(run_dir, n_trials=256):
+def collect_data(run_dir, n_trials=256, eval_cache=None, refresh_eval_cache=False):
     cfg,task,model,_ = load_run_artifacts(run_dir,checkpoint_name="best.pt",map_location="cpu")
-    batch = task.sample_batch(n_trials,split="val",device="cpu")
+    batch = load_or_create_eval_batch(
+        task,
+        n_trials=n_trials,
+        device="cpu",
+        split="val",
+        cache_path=eval_cache,
+        refresh=refresh_eval_cache,
+    )
     model.eval()
     with torch.no_grad():
         coupled = model(batch.inputs,intervention=None,add_noise=False)
@@ -115,10 +123,10 @@ def analyze_coherence(data, out_dir, name, primary_ep, outcome_ep):
     return uc
 
 def analyze_binary(data, out_dir):
-    analyze_coherence(data,out_dir,"binary_additive","stimulus","response")
+    analyze_coherence(data,out_dir,out_dir.name,"stimulus","response")
 
 def analyze_delayed(data, out_dir):
-    analyze_coherence(data,out_dir,"delayed_gated","stimulus","response")
+    analyze_coherence(data,out_dir,out_dir.name,"stimulus","response")
     ep=epoch_indices(data["epochs"]); diff=np.abs(data["meta"]["coherence"])
     # delay->response (strict)
     dd=windowed_mean(data["d"],ep["delay"]); md=windowed_mean(data["m"],ep["delay"])
@@ -135,7 +143,7 @@ def analyze_delayed(data, out_dir):
     print(f"  D unique: {uc3['d_unique_of_m']}  M unique: {uc3['m_unique_of_d']}")
 
 def analyze_redundant(data, out_dir):
-    analyze_coherence(data,out_dir,"redundant_lowrank","stimulus","response")
+    analyze_coherence(data,out_dir,out_dir.name,"stimulus","response")
     ep=epoch_indices(data["epochs"]); diff=np.abs(data["meta"]["coherence"])
     ct=difficulty_conditioned_effect(data["q"],data["q_dec"],diff,ep["response"])
     pd.DataFrame(ct).to_csv(out_dir/"redundant_lowrank_decoupling_cost.csv",index=False)
@@ -147,7 +155,7 @@ def analyze_redundant(data, out_dir):
 # === CONTEXT TASK ===
 
 def analyze_context(data, out_dir):
-    name="context_gated"; meta=data["meta"]
+    name=out_dir.name; meta=data["meta"]
     ctx=meta["context"]; c1=meta["coh1"]; c2=meta["coh2"]
     rel=np.where(ctx==0,c1,c2); irrel=np.where(ctx==0,c2,c1); diff=np.abs(rel)
     N,T=data["q"].shape; epochs=data["epochs"]; ep=epoch_indices(epochs)
@@ -197,7 +205,7 @@ def analyze_context(data, out_dir):
 # === STATE-SETTING TASK ===
 
 def analyze_state_setting(data, out_dir):
-    name="state_setting_reciprocal"; meta=data["meta"]
+    name=out_dir.name; meta=data["meta"]
     mode=meta["mode"]; mn={0:"integrate",1:"memory",2:"transient"}
     N,T=data["q"].shape; epochs=data["epochs"]; ep=epoch_indices(epochs)
     fd=out_dir/"figures"; fd.mkdir(parents=True,exist_ok=True)
@@ -255,10 +263,12 @@ def main():
     p.add_argument("--run-dir",type=str,default=None)
     p.add_argument("--all",action="store_true")
     p.add_argument("--n-trials",type=int,default=256)
+    p.add_argument("--eval-cache",type=str,default=None)
+    p.add_argument("--refresh-eval-cache",action="store_true")
     a=p.parse_args()
     dirs=ALL if a.all else ([a.run_dir] if a.run_dir else [])
     for rd in dirs:
-        d=collect_data(rd,a.n_trials)
+        d=collect_data(rd,a.n_trials,a.eval_cache,a.refresh_eval_cache)
         fn=DISPATCH.get(d["cfg"]["task"]["name"])
         if fn: fn(d,Path(rd))
 

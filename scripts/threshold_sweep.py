@@ -17,6 +17,7 @@ from src.analysis.mechanism_classification import (
     classify_mechanism,
     threshold_sweep,
 )
+from src.analysis.eval_cache import load_or_create_eval_batch
 from src.analysis.rollout import load_run_artifacts
 from src.utils.io import save_json
 from src.utils.plotting import (
@@ -26,13 +27,26 @@ from src.utils.plotting import (
 )
 
 
-def collect_trial_arrays(model, task, analysis_cfg, num_batches=8, batch_size=32):
+def collect_trial_arrays(model, task, analysis_cfg, num_batches=8, batch_size=32, eval_cache=None, refresh_eval_cache=False):
     """Run model, collect per-trial max/mean arrays (no sweep yet)."""
     all_d_max, all_d_mean = [], []
     all_m_max, all_m_mean = [], []
 
-    for _ in range(num_batches):
-        batch = task.sample_batch(batch_size, split="val", device="cpu")
+    if eval_cache:
+        batches = [
+            load_or_create_eval_batch(
+                task,
+                n_trials=batch_size,
+                device="cpu",
+                split="val",
+                cache_path=eval_cache,
+                refresh=refresh_eval_cache,
+            )
+        ]
+    else:
+        batches = [task.sample_batch(batch_size, split="val", device="cpu") for _ in range(num_batches)]
+
+    for batch in batches:
         result = classify_mechanism(model, task, batch, thresholds=analysis_cfg)
         d, m = result["direct"], result["modulation"]
         all_d_max.append(d["D_per_trial_max"])
@@ -79,6 +93,8 @@ def main():
     parser.add_argument("--m-steps", type=int, default=20)
     parser.add_argument("--mean-factor", type=float, default=0.5)
     parser.add_argument("--output-dir", type=str, default=None)
+    parser.add_argument("--eval-cache", type=str, default=None)
+    parser.add_argument("--refresh-eval-cache", action="store_true")
     args = parser.parse_args()
 
     d_range = np.linspace(args.d_min, args.d_max, args.d_steps)
@@ -102,7 +118,10 @@ def main():
 
         arrays = collect_trial_arrays(
             model, task, analysis_cfg,
-            num_batches=args.num_batches, batch_size=args.batch_size,
+            num_batches=args.num_batches,
+            batch_size=args.batch_size,
+            eval_cache=args.eval_cache,
+            refresh_eval_cache=args.refresh_eval_cache,
         )
 
         sweep_max = threshold_sweep(

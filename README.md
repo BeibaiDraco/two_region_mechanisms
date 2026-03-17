@@ -103,6 +103,36 @@ python scripts/delayed_gated_figures.py      # canonical delayed figures
 python scripts/state_setting_analysis.py     # rule-aligned transfer, hidden-state geometry, triplets
 ```
 
+### 9. Systematic task x architecture study
+
+This repo now also includes a parallel study layer for the factorial task x architecture comparison. It does **not** overwrite the legacy `outputs/experiments/` results.
+
+```bash
+python scripts/generate_task_arch_grid.py
+python scripts/run_task_arch_grid.py --skip-existing
+python scripts/aggregate_task_arch_results.py
+python scripts/make_task_arch_summary_figures.py
+python scripts/prune_study_run_figures.py
+```
+
+Study outputs live under:
+
+- `outputs/studies/task_arch_grid/runs/` — one run per `task__architecture__seed`
+- `outputs/studies/task_arch_grid/summaries/` — aggregate CSV tables
+- `outputs/studies/task_arch_grid/figures/` — study-level comparison figures
+
+By default, each study run now keeps a **minimal** figure set:
+
+- `traces.png` — the main per-run `E/D/M` trajectory figure
+
+The most useful study-level figures are:
+
+- `emd_summary_grid.png` — raw `E/D/M` trajectory summaries by task x architecture
+- `emd_summary_grid_peak_normalized.png` — peak-normalized `E/D/M` summaries for comparing temporal shape
+- `mechanism_map.png` — `D_J` vs `M_J`
+- `onset_plot.png` — onset comparisons
+- `task_arch_profile_grid.png` — compact strategy-label grid
+
 ---
 
 ## Interpret from existing results
@@ -265,6 +295,11 @@ two_region_mechanisms/
     run_task_analysis.py        # task-specific profiling (all 5)
     generate_profiles.py        # final profiles + summary table
     make_slide_figures.py       # presentation figures
+    generate_task_arch_grid.py  # build study configs
+    run_task_arch_grid.py       # run task x architecture study
+    aggregate_task_arch_results.py
+    make_task_arch_summary_figures.py
+    prune_study_run_figures.py  # keep study per-run figures minimal
     delayed_gated_analysis.py   # deep delayed-task analysis
     delayed_gated_figures.py    # canonical delayed figures
     state_setting_analysis.py   # deep state-setting analysis
@@ -315,6 +350,17 @@ figures/
 Cross-task outputs in `outputs/experiments/`:
 - `final_cross_task_summary.csv` — one row per experiment with strategy label
 - `threshold_robustness_summary.csv` — threshold sensitivity per experiment
+
+Study outputs in `outputs/studies/task_arch_grid/`:
+- `runs/{task}__{architecture}__seed{k}/` — per-run configs, metrics, checkpoints, and a minimal `figures/traces.png`
+- `summaries/by_run.csv` — one row per study run
+- `summaries/by_task_arch_seed.csv` — same rows grouped for downstream analysis
+- `summaries/by_task_arch_mean.csv` — task x architecture means
+- `figures/emd_summary_grid.png` — raw `E/D/M` summary trajectories
+- `figures/emd_summary_grid_peak_normalized.png` — peak-normalized `E/D/M` summary trajectories
+- `figures/mechanism_map.png` — task x architecture mechanism map
+- `figures/onset_plot.png` — onset comparison
+- `figures/task_arch_profile_grid.png` — compact profile-label grid
 
 ## License
 

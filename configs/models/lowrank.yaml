@@ -1,0 +1,10 @@
+name: TwoRegionLowRankCommRNN
+params:
+  hidden_size_a: 64
+  hidden_size_b: 64
+  dt: 0.1
+  tau_a: 1.0
+  tau_b: 1.5
+  reciprocal: false
+  noise_std: 0.0
+  rank: 8
